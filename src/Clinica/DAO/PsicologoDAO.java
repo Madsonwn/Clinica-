@@ -31,9 +31,12 @@ public class PsicologoDAO {
               PreparedStatement comando = conexao.prepareStatement(sql);
               ResultSet rs = comando.executeQuery();
               while (rs.next()){
-              String nome = rs.getString("nome");
-              String crp = rs.getString("crp");
-              System.out.println(nome + " - " + crp + " - ");
+                 int id = rs.getInt("psicologos_Id");
+                 String nome = rs.getString("nome");
+                 String crp = rs.getString("crp");
+                 System.out.println(nome + " - " + crp + " - ");
+                 Psicologo psicologo = new Psicologo(id, nome, crp);
+                 psicologos.add(psicologo);
               }
           }catch (SQLException e){
               System.out.println(e.getMessage());

@@ -41,6 +41,8 @@ public class PacienteDAO {
                 String email = rs.getString("email");
                 String telefone = rs.getString("telefone");
                 System.out.println(id + " - " + nome + " - " + email + " - " + telefone);
+                Paciente paciente = new Paciente(id, nome, email, telefone);
+                pacientes.add(paciente);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
