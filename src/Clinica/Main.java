@@ -23,13 +23,18 @@ public class Main{
         Paciente paciente2 = new Paciente(2,"Ivanilde","Ivanilde@gmail.com","453535");
         inserir.cadastrar(paciente1);
         inserir.cadastrar(paciente2);
-
-        PsicologoDAO inserir2 = new PsicologoDAO();
-        Psicologo psicologo1 = new Psicologo(1,"Dr.Geovanna","980107");
-        inserir2.cadastrar(psicologo1);
-
         List<Paciente> resultado = inserir.listarTodos();
         System.out.println(resultado);
+
+        PsicologoDAO inserirPs = new PsicologoDAO();
+        Psicologo psicologo1 = new Psicologo(1,"Dra.Geovanna","980107");
+        Psicologo psicologo2 = new Psicologo(2,"Dra.Amanda","123456");
+        inserirPs.cadastrar(psicologo1);
+        inserirPs.cadastrar(psicologo2);
+        inserirPs.excluir(2);
+        List<Psicologo> resultadoPs = inserirPs.listaDePsicologos();
+        System.out.println(resultadoPs);
+
 
     }
 }

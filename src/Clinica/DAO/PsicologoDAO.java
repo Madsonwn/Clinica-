@@ -27,7 +27,7 @@ public class PsicologoDAO {
         public List<Psicologo> listaDePsicologos() {
            List<Psicologo> psicologos = new ArrayList<>();
            try(Connection conexao = Conexao.conectar()) {
-              String sql = "SELECT nome, crp FROM psicologos";
+              String sql = "SELECT * FROM psicologos";
               PreparedStatement comando = conexao.prepareStatement(sql);
               ResultSet rs = comando.executeQuery();
               while (rs.next()){
@@ -42,5 +42,15 @@ public class PsicologoDAO {
               System.out.println(e.getMessage());
           }
           return psicologos;
+        }
+        public void excluir(int id){
+            String sql = "DELETE FROM psicologos WHERE psicologos_id = ?";
+            try(Connection conexao = Conexao.conectar()){
+                PreparedStatement comando = conexao.prepareStatement(sql);
+                comando.setInt(1,id);
+                comando.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
         }
 }

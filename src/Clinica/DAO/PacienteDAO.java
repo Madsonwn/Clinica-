@@ -49,4 +49,14 @@ public class PacienteDAO {
         }
         return pacientes;
     }
+    public void excluir(int id){
+        String sql = "DELETE FROM pacientes WHERE pacientes_id = ?";
+        try(Connection conexao = Conexao.conectar()){
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1,id);
+            comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

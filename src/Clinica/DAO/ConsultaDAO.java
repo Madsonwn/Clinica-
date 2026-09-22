@@ -49,4 +49,16 @@ public class ConsultaDAO {
             System.out.println(e.getMessage());
         }
     }
+    public void excluir(int id){
+        String sql = "DELETE FROM consultas WHERE consultas_id = ?";
+        try(Connection conexao = Conexao.conectar()){
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setInt(1,id);
+            comando.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+
 }
