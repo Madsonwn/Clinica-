@@ -1,3 +1,5 @@
+package Clinica.model;
+
 public class Paciente {
     private int  pacienteID;
     private String nome;

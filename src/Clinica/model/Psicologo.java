@@ -1,8 +1,9 @@
+package Clinica.model;
+
 public class Psicologo {
         private int psicologoID;
         private String nome;
         private String crp;
-
         public Psicologo(int psicologoID, String nome, String crp) {
             this.psicologoID = psicologoID;
             this.nome = nome;
@@ -30,5 +31,4 @@ public class Psicologo {
         public String toString() {
             return "Id: " + getPsicologoID() + " | Nome do psicólogo: " + getNome() + " | CRP: " + getCrp();
         }
-
 }

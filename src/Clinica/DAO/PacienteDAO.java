@@ -59,4 +59,17 @@ public class PacienteDAO {
             System.out.println(e.getMessage());
         }
     }
+    public void atualizar(int id, String nome, String email, String telefone){
+        String sql = "UPDATE pacientes SET nome = ?, email = ?, telefone = ? WHERE pacientes_id = ?";
+        try(Connection conexao = Conexao.conectar()){
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1,nome);
+            comando.setString(2,email);
+            comando.setString(3,telefone);
+            comando.setInt(4,id);
+            comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 }

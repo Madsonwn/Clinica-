@@ -1,10 +1,12 @@
+package Clinica.model;
+
 public class Consulta {
         private int consultaID;
         private String data;
         private Paciente paciente;
         private Psicologo psicologo;
 
-        public Consulta(int consultaID,String data,Paciente paciente, Psicologo psicologo){
+        public Consulta(int consultaID, String data, Paciente paciente, Psicologo psicologo){
             this.consultaID = consultaID;
             this.data = data;
             this.paciente = paciente;

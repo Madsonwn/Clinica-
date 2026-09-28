@@ -53,4 +53,16 @@ public class PsicologoDAO {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
+        public void atualizar(int id, String nome, String crp){
+            String sql = "UPDATE psicologos SET nome = ?, crp = ? WHERE psicologos_id = ?";
+            try (Connection conexao = Conexao.conectar()){
+                PreparedStatement comando = conexao.prepareStatement(sql);
+                comando.setString(1,nome);
+                comando.setString(2,crp);
+                comando.setInt(3,id);
+                comando.executeUpdate();
+            }catch(SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 }

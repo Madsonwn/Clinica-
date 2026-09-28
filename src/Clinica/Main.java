@@ -1,11 +1,12 @@
 package Clinica;
 
+import Clinica.DAO.ConsultaDAO;
 import Clinica.DAO.PacienteDAO;
 import Clinica.DAO.PsicologoDAO;
+import Clinica.model.Consulta;
 import Clinica.model.Paciente;
 import Clinica.model.Psicologo;
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main{
@@ -35,6 +36,13 @@ public class Main{
         List<Psicologo> resultadoPs = inserirPs.listaDePsicologos();
         System.out.println(resultadoPs);
 
+        ConsultaDAO marcarConsulta = new ConsultaDAO();
+        Consulta consulta1 = new Consulta(1,"27/09/2026", paciente1, psicologo1);
+        marcarConsulta.cadastrar(consulta1);
+        marcarConsulta.buscarConsultas(1);
+        Consulta consulta2 = new Consulta(2,"28/09/2026",paciente2, psicologo1);
+        marcarConsulta.cadastrar(consulta2);
+        marcarConsulta.buscarConsultas(2);
 
     }
 }

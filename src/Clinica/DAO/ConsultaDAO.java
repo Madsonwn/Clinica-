@@ -35,14 +35,14 @@ public class ConsultaDAO {
             comando.setInt(1, id);
             ResultSet rs = comando.executeQuery();
             while (rs.next()) {
-                int idConsulta = rs.getInt("consultas_id");
                 String data = rs.getString("data");
                 String nomePc = rs.getString("nome_paciente");
                 String nomePs = rs.getString("nome_psicologo");
+                int idConsulta = rs.getInt("consultas_id");
 
-                System.out.println("Numero da consulta:" + id +
-                        "Data: " + data +
-                        "Nome do paciente: " + nomePc +
+                System.out.println("Numero da consulta:" + idConsulta + " | " +
+                        "Data: " + data + " | " +
+                        "Nome do paciente: " + nomePc + " | " +
                         "Nome do Psicologo: " + nomePs);
             }
         } catch (SQLException e) {
